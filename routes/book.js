@@ -8,6 +8,7 @@ const db = require('../db/models');
 
 const router = express.Router();
 
+//Second time through 
 const checkPermissions = (book, currentUser) => {
   if (book.userId !== currentUser.id) {
     const err = new Error('Illegal operation.');
