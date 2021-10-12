@@ -4,6 +4,7 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
+//Destructure session secret and persistence function
 const { sessionSecret } = require('./config');
 const { restoreUser } = require('./auth');
 
@@ -23,7 +24,7 @@ app.use(session({
 }));
 app.use(express.urlencoded({ extended: false }));
 app.use(restoreUser);
-app.use(bookRoutes);
+app.use('/book', bookRoutes);
 app.use(userRoutes);
 
 // Catch unhandled requests and forward to error handler.

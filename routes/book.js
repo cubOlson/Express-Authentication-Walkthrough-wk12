@@ -59,7 +59,7 @@ const bookValidators = [
     .withMessage('Publisher must not be more than 100 characters long'),
 ];
 
-router.post('/book/add', requireAuth, csrfProtection, bookValidators,
+router.post('/add', requireAuth, csrfProtection, bookValidators,
   asyncHandler(async (req, res) => {
     const {
       title,
